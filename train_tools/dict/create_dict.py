@@ -5,7 +5,7 @@ from tensorflow.keras import preprocessing
 import pickle
 
 
-# 말뭉치 데이터 읽어오기
+# 말뭉치 데이터 읽기
 def read_corpus_data(filename):
     with open(filename, 'r') as f:
         data = [line.split('\t') for line in f.read().splitlines()]
