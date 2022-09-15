@@ -97,4 +97,4 @@ print('Accuracy: %f' % (accuracy * 100))
 print('loss: %f' % (loss))
 
 # 모델 저장
-model.save('intent_model.h5')
+model.save('intent_model_n.h5')
