@@ -8,7 +8,7 @@ from tensorflow.keras.layers import Input, Embedding, Dense, Dropout, Conv1D, Gl
 
 # 데이터 읽어오기
 train_file = "total_train_data.csv"
-data = pd.read_csv(train_file, delimiter=',')
+data = pd.read_csv(train_file, delimiter=',', error_bad_lines=False)
 queries = data['query'].tolist()
 intents = data['intent'].tolist()
 
@@ -97,4 +97,4 @@ print('Accuracy: %f' % (accuracy * 100))
 print('loss: %f' % (loss))
 
 # 모델 저장
-model.save('intent_model_n2.h5')
+model.save('intent_model_n3.h5')

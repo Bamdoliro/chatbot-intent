@@ -5,7 +5,7 @@ from config.DatabaseConfig import *
 from utils.Database import Database
 from utils.BotServer import BotServer
 from utils.Preprocess import Preprocess
-from models.intent.IntentModel import IntentModel
+from result.model.IntentModel import IntentModel
 from models.ner.NerModel import NerModel
 from utils.FindAnswer import FindAnswer
 
@@ -14,10 +14,10 @@ p = Preprocess(word2index_dic='train_tools/dict/chatbot_dict.bin',
                userdic='utils/user_dic.tsv')
 
 # 의도 파악 모델
-intent = IntentModel(model_name='models/intent/intent_model.h5', preprocess=p)
+intent = IntentModel(model_name='models/intent/intent_model_n3.h5', preprocess=p)
 
 # 개체명 인식 모델
-ner = NerModel(model_name='models/ner/ner_model.h5', preprocess=p)
+ner = NerModel(model_name='models/ner/ner_model_v1.h5', preprocess=p)
 
 
 def to_client(conn, addr, params):
@@ -43,10 +43,13 @@ def to_client(conn, addr, params):
         # 의도 파악
         intent_predict = intent.predict_class(query)
         intent_name = intent.labels[intent_predict]
+        print(intent_name)
 
         # 개체명 파악
         ner_predicts = ner.predict(query)
         ner_tags = ner.predict_tags(query)
+        print(ner_predicts)
+        print(ner_tags)
 
         # 답변 검색
         try:

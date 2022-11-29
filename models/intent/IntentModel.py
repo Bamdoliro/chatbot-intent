@@ -29,6 +29,7 @@ class IntentModel:
         # 단어 시퀀스 벡터 크기
         MAX_SEQ_LEN = 15
 
+
         # 패딩 처리
         padded_seqs = preprocessing.sequence.pad_sequences(sequences, maxlen=MAX_SEQ_LEN, padding='post')
 

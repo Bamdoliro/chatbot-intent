@@ -18,7 +18,7 @@ print(1)
 query = input()
 
 # 의도 파악
-from models.intent.IntentModel import IntentModel
+from result.model.IntentModel import IntentModel
 intent = IntentModel(model_name='../models/intent/intent_model.h5', preprocess=p)
 predict = intent.predict_class(query)
 intent_name = intent.labels[predict]
@@ -27,7 +27,7 @@ print(1)
 
 # 개체명 인식
 from models.ner.NerModel import NerModel
-ner = NerModel(model_name='../models/ner/ner_model.h5', preprocess=p)
+ner = NerModel(model_name='../models/ner/ner_model_v1.h5', preprocess=p)
 predicts = ner.predict(query)
 ner_tags = ner.predict_tags(query)
 

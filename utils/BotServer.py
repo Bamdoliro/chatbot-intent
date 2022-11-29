@@ -10,7 +10,7 @@ class BotServer:
     # sock 생성
     def create_sock(self):
         self.mySock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.mySock.bind(("0.0.0.0", int(self.port)))
+        self.mySock.bind(("0.0.0.1", int(self.port)))
         self.mySock.listen(int(self.listen))
         return self.mySock
 
